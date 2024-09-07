@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeNav">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/homeNav"
+        android:id="@+id/homeFragment"
         android:name="com.example.gatopedia.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/searchNav"
+        android:id="@+id/breedDetailsFragment"
         android:name="com.example.gatopedia.BreedDetailsFragment"
         android:label="fragment_breed_details"
         tools:layout="@layout/fragment_breed_details" />
     <fragment
-        android:id="@+id/favoritesNav"
+        android:id="@+id/favoritesFragment"
         android:name="com.example.gatopedia.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
