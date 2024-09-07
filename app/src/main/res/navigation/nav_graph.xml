@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeNav">
+
+    <fragment
+        android:id="@+id/homeNav"
+        android:name="com.example.gatopedia.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/searchNav"
+        android:name="com.example.gatopedia.BreedDetailsFragment"
+        android:label="fragment_breed_details"
+        tools:layout="@layout/fragment_breed_details" />
+    <fragment
+        android:id="@+id/favoritesNav"
+        android:name="com.example.gatopedia.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+</navigation>
