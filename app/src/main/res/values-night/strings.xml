@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title_search">Início</string>
+    <string name="app_name">Gatopédia</string>
+    <string name="title_home">Início</string>
+    <string name="title_search">Buscar</string>
     <string name="title_favorites">Favoritos</string>
+    <string name="breed_not_found">Raça desconhecida</string>
 </resources>

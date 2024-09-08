@@ -62,4 +62,6 @@ dependencies {
     implementation(libs.lifecycle.livedata.ktx)
 
     implementation(libs.navigation.fragment.ktx)
+    implementation(libs.picasso)
+
 }
