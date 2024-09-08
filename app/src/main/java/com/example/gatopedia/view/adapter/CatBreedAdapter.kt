@@ -24,18 +24,34 @@ class CatBreedAdapter(
 
     override fun onBindViewHolder(holder: CatBreedViewHolder, position: Int) {
         val catImage = catImages[position]
-        Picasso.get().load(catImage.url).into(holder.catImageView)
+
+        configureImage(catImage, holder)
 
         // TO-DO
-        if (catImage.breeds.size > position) {
-            val breed = catImage.breeds[position]
+        for (breed in catImage.breeds) {
             holder.breedNameTextView.text = breed.name
             holder.breedDescriptionTextView.text = breed.temperament
-        } else {
-            // TO-DO
+
+            // Se houver mais de uma raça, adicione um separador visual
+            if (catImage.breeds.size > 1) {
+                holder.breedDescriptionTextView.append("\n---\n")
+            }
+        }
+
+        // Se não houver raças, exiba a mensagem padrão
+        if (catImage.breeds.isEmpty()) {
             holder.breedNameTextView.text = context.getString(R.string.breed_not_found)
             holder.breedDescriptionTextView.text = ""
         }
+    }
+
+    private fun configureImage(
+        catImage: CatInfo,
+        holder: CatBreedViewHolder
+    ) {
+        Picasso.get()
+            .load(catImage.url)
+            .into(holder.catImageView)
     }
 
     override fun getItemCount() = catImages.size
@@ -50,4 +66,7 @@ class CatBreedAdapter(
         val breedNameTextView: TextView = itemView.findViewById(R.id.breed_name)
         val breedDescriptionTextView: TextView = itemView.findViewById(R.id.breed_description)
     }
+
+    //        Log.d("API_DATA", "catImage: $catImage")
+    //        Log.d("API_DATA", "catImage.breeds: ${catImage.breeds}")
 }

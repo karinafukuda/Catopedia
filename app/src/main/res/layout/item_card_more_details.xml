@@ -27,7 +27,7 @@
             android:src="@drawable/ic_image_default" />
 
         <TextView
-            android:id="@+id/breed_name"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -36,19 +36,33 @@
             tools:text="Bengal" />
 
         <TextView
-            android:id="@+id/breed_description"
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="O Bengal é uma raça de gato doméstico desenvolvida para se parecer com gatos selvagens exóticos, como leopardos, jaguatiricas, margays e leopardos nublados." />
 
         <TextView
-            android:id="@+id/more_info"
+            android:id="@+id/size"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/brown_link"
-            android:textAlignment="textEnd"
-            android:textSize="12sp"
             android:text="@string/more_information" />
+
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brown_link"
+            android:text="@string/more_information" />
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/a11y_favorite_icon"
+            android:src="@drawable/state_fav_selection"
+            android:background="@drawable/rounded_image"
+            android:layout_gravity="end"
+            />
 
     </LinearLayout>
 

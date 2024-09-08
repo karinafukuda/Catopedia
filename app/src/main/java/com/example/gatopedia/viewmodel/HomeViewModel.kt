@@ -19,7 +19,7 @@ class HomeViewModel : ViewModel() {
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
-    fun searchCatImages(limit: Int = 3, breedIds: String? = null, page: Int = 0) {
+    fun searchCatImages(limit: Int = LIMIT_SEARCH_DEFAULT, breedIds: String? = null, page: Int = 0) {
         viewModelScope.launch {
             RetrofitClient.catApi.searchImages(limit, breedIds, page).enqueue(object : Callback<List<CatInfo>> {
                 override fun onResponse(call: Call<List<CatInfo>>, response: Response<List<CatInfo>>) {
@@ -28,15 +28,21 @@ class HomeViewModel : ViewModel() {
                             _catImages.postValue(catImages)
                         }
                     } else {
-                        _error.postValue("Erro: ${response.message()}")
+                        _error.postValue("$ERROR${response.message()}")
                     }
                 }
 
                 override fun onFailure(call: Call<List<CatInfo>>, t: Throwable) {
-                    _error.postValue("Erro ao buscar imagens: ${t.message}")
+                    _error.postValue("$ERROR_MESSAGE_FAIL${t.message}")
                 }
             })
         }
+    }
+
+    companion object {
+        const val ERROR_MESSAGE_FAIL = "Erro ao buscar imagens: "
+        const val ERROR = "Erro: "
+        const val LIMIT_SEARCH_DEFAULT = 10
     }
 
 }

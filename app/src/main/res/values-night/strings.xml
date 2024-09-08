@@ -2,7 +2,11 @@
 <resources>
     <string name="app_name">Gatopédia</string>
     <string name="title_home">Início</string>
-    <string name="title_search">Buscar</string>
+    <string name="title_search">Mais Detalhes</string>
+    <string name="hint_search">Busca por raça</string>
     <string name="title_favorites">Favoritos</string>
     <string name="breed_not_found">Raça desconhecida</string>
+    <string name="popular_breeds">Gatos Populares na Internet</string>
+    <string name="more_information">Saber mais</string>
+    <string name="a11y_favorite_icon">Botão de favoritar.</string>
 </resources>
