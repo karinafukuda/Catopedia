@@ -14,50 +14,33 @@ import com.example.gatopedia.databinding.FragmentHomeBinding
 import com.example.gatopedia.view.adapter.CatBreedAdapter
 import com.example.gatopedia.viewmodel.HomeViewModel
 
-/**
- * A simple [Fragment] subclass.
- * create an instance of this fragment.
- */
+private const val TWO_CARDS_IN_LINE = 2
+
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: HomeViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHomeBinding.inflate(
-            inflater,
-            container, false
-        )
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
-        val adapter = CatBreedAdapter(requireContext(), emptyList())
-        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.recyclerView.adapter = adapter
+        val adapter = configureAdapter()
 
-        viewModel.catImages.observe(viewLifecycleOwner, Observer { catImages ->
-            catImages?.let {
-                adapter.updateData(it)
-            }
-        })
+        observeUpdateImage(adapter)
+        observerError()
+        handleSearchBreedByName()
 
-        viewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
-            errorMessage?.let {
-                Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
-            }
-        })
-
-        // Call the ViewModel method to fetch cat images
         viewModel.fetchCatList()
 
+    }
+
+    private fun handleSearchBreedByName() {
         binding.searchHome.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
@@ -65,9 +48,27 @@ class HomeFragment : Fragment() {
                 }
                 return true
             }
+            override fun onQueryTextChange(newText: String?) = false
+        })
+    }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return false
+    private fun observeUpdateImage(adapter: CatBreedAdapter) {
+        viewModel.catImages.observe(viewLifecycleOwner, Observer { catImages ->
+            catImages?.let { adapter.updateData(it) }
+        })
+    }
+
+    private fun configureAdapter(): CatBreedAdapter {
+        val adapter = CatBreedAdapter(emptyList())
+        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), TWO_CARDS_IN_LINE)
+        binding.recyclerView.adapter = adapter
+        return adapter
+    }
+
+    private fun observerError() {
+        viewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
+            errorMessage?.let {
+                Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
             }
         })
     }
@@ -76,8 +77,9 @@ class HomeFragment : Fragment() {
         Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
     }
 
+    // Prevents memory leaks
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null // Prevents memory leaks
+        _binding = null
     }
 }
