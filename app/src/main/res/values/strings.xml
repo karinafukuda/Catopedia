@@ -8,4 +8,6 @@
     <string name="popular_breeds">Gatos Populares na Internet</string>
     <string name="more_information">Saber mais</string>
     <string name="a11y_favorite_icon">Botão de favoritar.</string>
+    <string name="fav_cats">Meus Gatos Favoritos</string>
+    <string name="more_info_subtitle">Mais Informações Felinas</string>
 </resources>

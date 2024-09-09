@@ -31,14 +31,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
+            android:paddingVertical="12dp"
             tools:text="Bengal" />
 
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             tools:text="O Bengal é uma raça de gato doméstico desenvolvida para se parecer com gatos selvagens exóticos, como leopardos, jaguatiricas, margays e leopardos nublados." />
 
         <TextView
@@ -46,14 +48,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/brown_link"
-            android:text="@string/more_information" />
+            android:layout_marginBottom="8dp"
+            android:text="País de origem: EUA" />
 
         <TextView
             android:id="@+id/country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/brown_link"
-            android:text="@string/more_information" />
+            android:layout_marginBottom="8dp"
+            android:text="Vida: 14 - 15 anos" />
+
+        <TextView
+            android:id="@+id/intelligent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brown_link"
+            android:layout_marginBottom="8dp"
+            android:text="Inteligência: 5" />
+
+        <TextView
+            android:id="@+id/love"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brown_link"
+            android:layout_marginBottom="8dp"
+            android:text="Afeto: 4" />
+
+        <TextView
+            android:id="@+id/social"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brown_link"
+            android:layout_marginBottom="8dp"
+            android:text="Necessidades Sociais: 3" />
+
+        <TextView
+            android:id="@+id/friendly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brown_link"
+            android:layout_marginBottom="8dp"
+            android:text="Amigável com outros crianças: 3" />
 
         <ImageButton
             android:layout_width="48dp"

@@ -1,22 +1,26 @@
 package com.example.gatopedia.presentation.viewholder
 
+import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gatopedia.R
 import com.example.gatopedia.data.CatInformation
+import com.example.gatopedia.presentation.ui.BreedDetailsFragment
 import com.example.gatopedia.util.EMPTY
 import com.squareup.picasso.Picasso
 
-class CatBreedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val catImageView: ImageView = itemView.findViewById(R.id.cat_image)
     private val breedNameTextView: TextView = itemView.findViewById(R.id.breed_name)
     private val breedDescriptionTextView: TextView = itemView.findViewById(R.id.breed_description)
+    private val moreInfoTextView: TextView = itemView.findViewById(R.id.more_info)
 
     fun configureTexts(
         catImage: CatInformation,
-        holder: CatBreedViewHolder
+        holder: HomeViewHolder
     ) {
         for (breed in catImage.breeds) {
             holder.breedNameTextView.text = breed.name
@@ -35,7 +39,7 @@ class CatBreedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun configureImage(
         catImage: CatInformation,
-        holder: CatBreedViewHolder
+        holder: HomeViewHolder
     ) {
         Picasso.get()
             .load(catImage.url)

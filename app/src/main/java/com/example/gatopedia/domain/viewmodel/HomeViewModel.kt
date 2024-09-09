@@ -62,6 +62,26 @@ class HomeViewModel : ViewModel() {
         }
     }
 
+    fun fetchBreedDetails(catId: String) {
+        viewModelScope.launch {
+            // Faça a chamada à API para buscar os detalhes da raça com base no catId
+            // Atualize uma LiveData com os detalhes da raça para que o Fragment possa observá-la e atualizar a interface
+            RetrofitClient.catApiService.searchBreedsByName(catId).enqueue(object : Callback<List<CatInformation.Breed>> {
+                override fun onResponse(call: Call<List<CatInformation.Breed>>, response: Response<List<CatInformation.Breed>>) {
+                    if (response.isSuccessful) {
+                        _breeds.postValue(response.body())
+                    } else {
+                        _error.postValue("$ERROR_NOT_FOUND${response.message()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<List<CatInformation.Breed>>, t: Throwable) {
+                    _error.postValue("$ERROR_NOT_FOUND${t.message}")
+                }
+            })
+        }
+    }
+
     companion object {
         const val ERROR_MESSAGE_FAIL = "Erro ao buscar imagens: "
         const val ERROR = "Erro: "
