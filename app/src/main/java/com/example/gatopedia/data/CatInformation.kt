@@ -1,11 +1,11 @@
-package com.example.gatopedia.model
+package com.example.gatopedia.data
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 @Keep
-data class CatInfo(
+data class CatInformation(
     @SerializedName("id") val id: String,
     @SerializedName("url") val url: String,
     @SerializedName("width") val width: Int,

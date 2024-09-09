@@ -1,4 +1,4 @@
-package com.example.gatopedia.view.ui
+package com.example.gatopedia.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,14 +11,13 @@ import com.example.gatopedia.R
  * A simple [Fragment] subclass.
  * create an instance of this fragment.
  */
-class BreedDetailsFragment : Fragment() {
+class FavoritesFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_breed_details, container, false)
+        return inflater.inflate(R.layout.fragment_favorites, container, false)
     }
-
 }

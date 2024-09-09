@@ -1,11 +1,11 @@
-package com.example.gatopedia.view.viewholder
+package com.example.gatopedia.presentation.viewholder
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gatopedia.R
-import com.example.gatopedia.model.CatInfo
+import com.example.gatopedia.data.CatInformation
 import com.example.gatopedia.util.EMPTY
 import com.squareup.picasso.Picasso
 
@@ -15,7 +15,7 @@ class CatBreedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val breedDescriptionTextView: TextView = itemView.findViewById(R.id.breed_description)
 
     fun configureTexts(
-        catImage: CatInfo,
+        catImage: CatInformation,
         holder: CatBreedViewHolder
     ) {
         for (breed in catImage.breeds) {
@@ -34,7 +34,7 @@ class CatBreedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     fun configureImage(
-        catImage: CatInfo,
+        catImage: CatInformation,
         holder: CatBreedViewHolder
     ) {
         Picasso.get()

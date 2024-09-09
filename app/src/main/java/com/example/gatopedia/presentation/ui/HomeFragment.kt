@@ -1,4 +1,4 @@
-package com.example.gatopedia.view.ui
+package com.example.gatopedia.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.gatopedia.databinding.FragmentHomeBinding
-import com.example.gatopedia.view.adapter.CatBreedAdapter
-import com.example.gatopedia.viewmodel.HomeViewModel
+import com.example.gatopedia.presentation.adapter.CatBreedAdapter
+import com.example.gatopedia.domain.viewmodel.HomeViewModel
 
 private const val TWO_CARDS_IN_LINE = 2
 

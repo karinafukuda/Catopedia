@@ -1,14 +1,14 @@
-package com.example.gatopedia.view.adapter
+package com.example.gatopedia.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gatopedia.R
-import com.example.gatopedia.model.CatInfo
-import com.example.gatopedia.view.viewholder.CatBreedViewHolder
+import com.example.gatopedia.data.CatInformation
+import com.example.gatopedia.presentation.viewholder.CatBreedViewHolder
 
 class CatBreedAdapter(
-    private var catImages: List<CatInfo>
+    private var catImages: List<CatInformation>
 ) : RecyclerView.Adapter<CatBreedViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatBreedViewHolder {
@@ -25,7 +25,7 @@ class CatBreedAdapter(
 
     override fun getItemCount() = catImages.size
 
-    fun updateData(newCatImages: List<CatInfo>) {
+    fun updateData(newCatImages: List<CatInformation>) {
         catImages = newCatImages
         notifyDataSetChanged()
     }

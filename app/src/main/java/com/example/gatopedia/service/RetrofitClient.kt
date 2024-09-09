@@ -24,7 +24,7 @@ object RetrofitClient {
             .build()
     }
 
-    val catApi: CatApi by lazy {
-        retrofit.create(CatApi::class.java)
+    val catApiService: CatApiService by lazy {
+        retrofit.create(CatApiService::class.java)
     }
 }
