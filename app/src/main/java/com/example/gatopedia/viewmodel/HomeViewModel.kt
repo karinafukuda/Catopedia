@@ -16,24 +16,46 @@ class HomeViewModel : ViewModel() {
     private val _catImages = MutableLiveData<List<CatInfo>>()
     val catImages: LiveData<List<CatInfo>> get() = _catImages
 
+    private val _breeds = MutableLiveData<List<CatInfo.Breed>>()
+    val breeds: LiveData<List<CatInfo.Breed>> get() = _breeds
+
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
-    fun searchCatImages(limit: Int = LIMIT_SEARCH_DEFAULT, breedIds: String? = null, page: Int = 0) {
+    init {
+        fetchCatList()
+    }
+
+    fun fetchCatList() {
         viewModelScope.launch {
-            RetrofitClient.catApi.searchImages(limit, breedIds, page).enqueue(object : Callback<List<CatInfo>> {
+            RetrofitClient.catApi.getCatInformation().enqueue(object : Callback<List<CatInfo>> {
                 override fun onResponse(call: Call<List<CatInfo>>, response: Response<List<CatInfo>>) {
                     if (response.isSuccessful) {
                         response.body()?.let { catImages ->
                             _catImages.postValue(catImages)
                         }
+                    } else _error.postValue("$ERROR${response.message()}")
+                }
+                override fun onFailure(call: Call<List<CatInfo>>, t: Throwable) {
+                    _error.postValue("$ERROR_MESSAGE_FAIL${t.message}")
+                }
+            })
+        }
+    }
+
+    fun searchBreedsByName(query: String) {
+        viewModelScope.launch {
+            RetrofitClient.catApi.searchBreedsByName(query).enqueue(object : Callback<List<CatInfo.Breed>> {
+                override fun onResponse(call: Call<List<CatInfo.Breed>>, response: Response<List<CatInfo.Breed>>) {
+                    if (response.isSuccessful) {
+                        _breeds.postValue(response.body())
                     } else {
-                        _error.postValue("$ERROR${response.message()}")
+                        _error.postValue("Erro ao buscar raças por nome: ${response.message()}")
                     }
                 }
 
-                override fun onFailure(call: Call<List<CatInfo>>, t: Throwable) {
-                    _error.postValue("$ERROR_MESSAGE_FAIL${t.message}")
+                override fun onFailure(call: Call<List<CatInfo.Breed>>, t: Throwable) {
+                    _error.postValue("Erro ao buscar raças por nome: ${t.message}")
                 }
             })
         }
@@ -42,6 +64,7 @@ class HomeViewModel : ViewModel() {
     companion object {
         const val ERROR_MESSAGE_FAIL = "Erro ao buscar imagens: "
         const val ERROR = "Erro: "
+        const val ERROR_NOT_FOUND = "Não encontramos o gatinho."
         const val LIMIT_SEARCH_DEFAULT = 10
     }
 

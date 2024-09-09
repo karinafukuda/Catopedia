@@ -24,34 +24,8 @@ class CatBreedAdapter(
 
     override fun onBindViewHolder(holder: CatBreedViewHolder, position: Int) {
         val catImage = catImages[position]
-
-        configureImage(catImage, holder)
-
-        // TO-DO
-        for (breed in catImage.breeds) {
-            holder.breedNameTextView.text = breed.name
-            holder.breedDescriptionTextView.text = breed.temperament
-
-            // Se houver mais de uma raça, adicione um separador visual
-            if (catImage.breeds.size > 1) {
-                holder.breedDescriptionTextView.append("\n---\n")
-            }
-        }
-
-        // Se não houver raças, exiba a mensagem padrão
-        if (catImage.breeds.isEmpty()) {
-            holder.breedNameTextView.text = context.getString(R.string.breed_not_found)
-            holder.breedDescriptionTextView.text = ""
-        }
-    }
-
-    private fun configureImage(
-        catImage: CatInfo,
-        holder: CatBreedViewHolder
-    ) {
-        Picasso.get()
-            .load(catImage.url)
-            .into(holder.catImageView)
+        holder.configureImage(catImage, holder)
+        holder.configureTexts(catImage, holder)
     }
 
     override fun getItemCount() = catImages.size
@@ -62,11 +36,37 @@ class CatBreedAdapter(
     }
 
     class CatBreedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val catImageView: ImageView = itemView.findViewById(R.id.cat_image)
-        val breedNameTextView: TextView = itemView.findViewById(R.id.breed_name)
-        val breedDescriptionTextView: TextView = itemView.findViewById(R.id.breed_description)
-    }
+        private val catImageView: ImageView = itemView.findViewById(R.id.cat_image)
+        private val breedNameTextView: TextView = itemView.findViewById(R.id.breed_name)
+        private val breedDescriptionTextView: TextView = itemView.findViewById(R.id.breed_description)
 
-    //        Log.d("API_DATA", "catImage: $catImage")
-    //        Log.d("API_DATA", "catImage.breeds: ${catImage.breeds}")
+        fun configureTexts(
+            catImage: CatInfo,
+            holder: CatBreedViewHolder
+        ) {
+            for (breed in catImage.breeds) {
+                holder.breedNameTextView.text = breed.name
+                holder.breedDescriptionTextView.text = breed.temperament
+
+                if (catImage.breeds.size > 1) {
+                    holder.breedDescriptionTextView.append("\n---\n")
+                }
+            }
+
+            if (catImage.breeds.isEmpty()) {
+                holder.breedNameTextView.text = itemView.context.getString(R.string.breed_not_found)
+                holder.breedDescriptionTextView.text = ""
+            }
+        }
+
+        fun configureImage(
+            catImage: CatInfo,
+            holder: CatBreedViewHolder
+        ) {
+            Picasso.get()
+                .load(catImage.url)
+                .into(holder.catImageView)
+        }
+    }
 }
+

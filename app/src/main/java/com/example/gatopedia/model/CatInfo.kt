@@ -1,15 +1,19 @@
 package com.example.gatopedia.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
+@Keep
 data class CatInfo(
     @SerializedName("id") val id: String,
     @SerializedName("url") val url: String,
     @SerializedName("width") val width: Int,
     @SerializedName("height") val height: Int,
-    @SerializedName("breeds") val breeds: List<Breed> = emptyList()
-) {
+    @SerializedName("breeds") val breeds: List<Breed>
+) : Serializable {
 
+    @Keep
     data class Breed(
         @SerializedName("weight") val weight: Weight,
         @SerializedName("id") val id: String,
@@ -22,6 +26,7 @@ data class CatInfo(
         @SerializedName("wikipedia_url") val wikipediaUrl: String
     )
 
+    @Keep
     data class Weight(
         @SerializedName("imperial") val imperial: String,
         @SerializedName("metric") val metric: String
