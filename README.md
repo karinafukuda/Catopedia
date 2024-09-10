@@ -20,9 +20,11 @@ Com as funcionalidades de:
 - Ser responsivo;
 - Internacionalização;
 
-|Home Screen [WIP]|
-|----|
-|<img src="https://github.com/user-attachments/assets/e56296f1-3077-46f1-9cb6-20a75ebeb0f8" width="50%">|
+|Home Screen [WIP]| Details Screen [WIP] |
+|----|----|
+|<img src="https://github.com/user-attachments/assets/593c77cd-ba3b-4eee-a3cd-afdff1cd3f3b">|<img src="https://github.com/user-attachments/assets/74417b39-33e1-402b-a783-5c4116decced">|
+
+
 
 
 ##### API Pública 
