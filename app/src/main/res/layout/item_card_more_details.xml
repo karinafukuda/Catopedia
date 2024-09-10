@@ -44,20 +44,20 @@
             tools:text="O Bengal é uma raça de gato doméstico desenvolvida para se parecer com gatos selvagens exóticos, como leopardos, jaguatiricas, margays e leopardos nublados." />
 
         <TextView
-            android:id="@+id/size"
+            android:id="@+id/origin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/brown_link"
             android:layout_marginBottom="8dp"
-            android:text="País de origem: EUA" />
+            tools:text="Brazil" />
 
         <TextView
-            android:id="@+id/country"
+            android:id="@+id/life_span"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/brown_link"
             android:layout_marginBottom="8dp"
-            android:text="Vida: 14 - 15 anos" />
+            tools:text="Vida: 14 - 15 anos" />
 
         <TextView
             android:id="@+id/intelligent"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/brown_link"
             android:layout_marginBottom="8dp"
-            android:text="Inteligência: 5" />
+            tools:text="Inteligência: 5" />
 
         <TextView
             android:id="@+id/love"
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/brown_link"
             android:layout_marginBottom="8dp"
-            android:text="Afeto: 4" />
+            tools:text="Afeto: 4" />
 
         <TextView
             android:id="@+id/social"
@@ -81,15 +81,15 @@
             android:layout_height="wrap_content"
             android:textColor="@color/brown_link"
             android:layout_marginBottom="8dp"
-            android:text="Necessidades Sociais: 3" />
+            tools:text="Necessidades Sociais: 3" />
 
         <TextView
-            android:id="@+id/friendly"
+            android:id="@+id/wiki"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/brown_link"
             android:layout_marginBottom="8dp"
-            android:text="Amigável com outros crianças: 3" />
+            tools:text="Amigável com outros crianças: 3" />
 
         <ImageButton
             android:layout_width="48dp"
@@ -97,8 +97,7 @@
             android:contentDescription="@string/a11y_favorite_icon"
             android:src="@drawable/state_fav_selection"
             android:background="@drawable/rounded_image"
-            android:layout_gravity="end"
-            />
+            android:layout_gravity="end" />
 
     </LinearLayout>
 

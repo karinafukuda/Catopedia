@@ -20,9 +20,9 @@
             android:id="@+id/cat_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:background="@drawable/rounded_image"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop"
-            android:background="@drawable/rounded_image"
             android:src="@drawable/ic_image_default" />
 
         <TextView
@@ -30,6 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/cat_image"
+            android:layout_alignStart="@+id/cat_image"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="8dp"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -40,22 +42,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/breed_name"
-            android:lines="3"
+            android:layout_alignStart="@+id/breed_name"
+            android:layout_marginStart="0dp"
             android:layout_marginBottom="8dp"
+            android:lines="3"
+            android:textSize="12sp"
             tools:text="O Bengal é uma raça de gato doméstico desenvolvida para se parecer com gatos selvagens exóticos, como leopardos, jaguatiricas, margays e leopardos nublados." />
 
         <TextView
             android:id="@+id/more_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/breed_description"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:textColor="@color/brown_link"
-            android:textAlignment="textEnd"
-            android:textSize="12sp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:lines="1"
-            android:text="@string/more_information" />
+            android:text="@string/more_information"
+            android:textAlignment="textEnd"
+            android:textColor="@color/brown_link"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 

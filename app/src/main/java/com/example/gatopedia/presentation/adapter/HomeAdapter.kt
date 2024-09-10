@@ -1,13 +1,10 @@
 package com.example.gatopedia.presentation.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gatopedia.R
 import com.example.gatopedia.data.CatInformation
-import com.example.gatopedia.presentation.ui.BreedDetailsFragment
 import com.example.gatopedia.presentation.ui.OnItemClickListener
 import com.example.gatopedia.presentation.viewholder.HomeViewHolder
 
@@ -27,6 +24,14 @@ class HomeAdapter(
         val catImage = catImages[position]
         holder.configureImage(catImage, holder)
         holder.configureTexts(catImage, holder)
+
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.onItemClick(catImage)
+        }
+
+        holder.moreInfoTextView.setOnClickListener {
+            onItemClickListener?.onItemClick(catImage)
+        }
     }
 
     override fun getItemCount() = catImages.size

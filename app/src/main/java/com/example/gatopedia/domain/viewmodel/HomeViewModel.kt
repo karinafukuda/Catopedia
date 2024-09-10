@@ -13,80 +13,84 @@ import retrofit2.Response
 
 class HomeViewModel : ViewModel() {
 
-    private val _catImages = MutableLiveData<List<CatInformation>>()
-    val catImages: LiveData<List<CatInformation>> get() = _catImages
+    private val _catImages = MutableLiveData<List<CatInformation>?>()
+    val catImages: LiveData<List<CatInformation>?> get() = _catImages
 
-    private val _breeds = MutableLiveData<List<CatInformation.Breed>>()
-    val breeds: LiveData<List<CatInformation.Breed>> get() = _breeds
+    private val _searchImages = MutableLiveData<List<CatInformation>?>()
+    val searchImages: LiveData<List<CatInformation>?> get() = _searchImages
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> get() = _isLoading
 
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
     init {
-        fetchCatList()
-        searchBreedsByName("")
+        fetchRandomCatList()
     }
 
-    fun fetchCatList() {
+    fun fetchRandomCatList() {
         viewModelScope.launch {
-            RetrofitClient.catApiService.getCatInformation().enqueue(object : Callback<List<CatInformation>> {
-                override fun onResponse(call: Call<List<CatInformation>>, response: Response<List<CatInformation>>) {
-                    if (response.isSuccessful) {
-                        response.body()?.let { catImages ->
-                            _catImages.postValue(catImages)
+            RetrofitClient.catApi.getCatInformation()
+                .enqueue(object : Callback<List<CatInformation>> {
+                    override fun onResponse(
+                        call: Call<List<CatInformation>>,
+                        response: Response<List<CatInformation>>
+                    ) {
+                        _isLoading.postValue(true)
+                        if (response.isSuccessful) {
+                            response.body()?.let { catImages ->
+                                _catImages.postValue(catImages)
+                                _isLoading.postValue(false)
+                            }
+                        } else _error.postValue("$ERROR${response.message()}").also {
+                            _isLoading.postValue(false)
                         }
-                    } else _error.postValue("$ERROR${response.message()}")
-                }
-                override fun onFailure(call: Call<List<CatInformation>>, t: Throwable) {
-                    _error.postValue("$ERROR_MESSAGE_FAIL${t.message}")
-                }
-            })
+                    }
+
+                    override fun onFailure(call: Call<List<CatInformation>>, t: Throwable) {
+                        _error.postValue("$ERROR_MESSAGE_FAIL${t.message}")
+                        _isLoading.postValue(false)
+                    }
+                })
         }
     }
 
-    fun searchBreedsByName(query: String) {
+    fun fetchImagesByBreeds(catId: String) {
         viewModelScope.launch {
-            RetrofitClient.catApiService.searchBreedsByName(query).enqueue(object : Callback<List<CatInformation.Breed>> {
-                override fun onResponse(call: Call<List<CatInformation.Breed>>, response: Response<List<CatInformation.Breed>>) {
-                    if (response.isSuccessful) {
-                        _breeds.postValue(response.body())
-                    } else {
-                        _error.postValue("$ERROR_NOT_FOUND${response.message()}")
+            RetrofitClient.catApi.searchImagesByBreed(catId)
+                .enqueue(object : Callback<List<CatInformation>> {
+                    override fun onResponse(
+                        call: Call<List<CatInformation>>,
+                        response: Response<List<CatInformation>>
+                    ) {
+                        _isLoading.postValue(true)
+                        if (response.isSuccessful) {
+                            val images = response.body()
+                            if (images.isNullOrEmpty()) {
+                                _error.postValue(BREED_NOT_FOUND)
+                                _isLoading.postValue(false)
+                            } else {
+                                _catImages.postValue(images)
+                                _searchImages.postValue(images)
+                                _isLoading.postValue(false)
+                            }
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<List<CatInformation.Breed>>, t: Throwable) {
-                    _error.postValue("$ERROR_NOT_FOUND${t.message}")
-                }
-            })
-        }
-    }
-
-    fun fetchBreedDetails(catId: String) {
-        viewModelScope.launch {
-            // Faça a chamada à API para buscar os detalhes da raça com base no catId
-            // Atualize uma LiveData com os detalhes da raça para que o Fragment possa observá-la e atualizar a interface
-            RetrofitClient.catApiService.searchBreedsByName(catId).enqueue(object : Callback<List<CatInformation.Breed>> {
-                override fun onResponse(call: Call<List<CatInformation.Breed>>, response: Response<List<CatInformation.Breed>>) {
-                    if (response.isSuccessful) {
-                        _breeds.postValue(response.body())
-                    } else {
-                        _error.postValue("$ERROR_NOT_FOUND${response.message()}")
+                    override fun onFailure(call: Call<List<CatInformation>>, t: Throwable) {
+                        _error.postValue("$ERROR_NETWORK${t.message}").also {
+                            _isLoading.postValue(false)
+                        }
                     }
-                }
-
-                override fun onFailure(call: Call<List<CatInformation.Breed>>, t: Throwable) {
-                    _error.postValue("$ERROR_NOT_FOUND${t.message}")
-                }
-            })
+                })
         }
     }
 
     companion object {
         const val ERROR_MESSAGE_FAIL = "Erro ao buscar imagens: "
+        const val ERROR_NETWORK = "Erro na rede: "
         const val ERROR = "Erro: "
-        const val ERROR_NOT_FOUND = "Erro ao buscar raças por nome: "
-        const val LIMIT_SEARCH_DEFAULT = 10
+        const val BREED_NOT_FOUND = "Nenhuma imagem encontrada para esta raça"
     }
-
 }

@@ -7,23 +7,27 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.gatopedia.R
 import com.example.gatopedia.data.CatInformation
 import com.example.gatopedia.databinding.FragmentHomeBinding
 import com.example.gatopedia.presentation.adapter.HomeAdapter
 import com.example.gatopedia.domain.viewmodel.HomeViewModel
 
 private const val TWO_CARDS_IN_LINE = 2
+private const val VALIDATION_CHAR = "A busca por raça deve ter exatamente 4 caracteres"
 
 class HomeFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: HomeViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,41 +43,42 @@ class HomeFragment : Fragment(), OnItemClickListener {
         handleSearchBreedByName()
         adapter.setOnItemClickListener(this) // Define o listener
 
-        viewModel.fetchCatList()
+        viewModel.fetchRandomCatList()
 
     }
 
     override fun onItemClick(cat: CatInformation) {
-        val bundle = Bundle()
-        bundle.putString("catId", cat.id)
-
-        val fragment = BreedDetailsFragment()
-        fragment.arguments = bundle
-
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.breedDetailsFragment, fragment)
-            .addToBackStack(null)
-            .commit()
-
+        val action = HomeFragmentDirections.actionHomeToBreedDetail()
+        findNavController().navigate(action)
     }
-
 
     private fun handleSearchBreedByName() {
         binding.searchHome.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
-                    viewModel.searchBreedsByName(it)
+                    if (it.length != 4) {
+                        Toast.makeText(
+                            requireContext(),
+                            VALIDATION_CHAR,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        viewModel.fetchImagesByBreeds(it)
+                    }
                 }
                 return true
             }
+
             override fun onQueryTextChange(newText: String?) = false
         })
     }
 
     private fun observeUpdateImage(adapter: HomeAdapter) {
-        viewModel.catImages.observe(viewLifecycleOwner, Observer { catImages ->
-            catImages?.let { adapter.updateData(it) }
-        })
+        viewModel.catImages.observe(viewLifecycleOwner) { newCatImages ->
+            if (newCatImages != null) {
+                adapter.updateData(newCatImages)
+            }
+        }
     }
 
     private fun configureAdapter(): HomeAdapter {
@@ -84,11 +89,9 @@ class HomeFragment : Fragment(), OnItemClickListener {
     }
 
     private fun observerError() {
-        viewModel.error.observe(viewLifecycleOwner, Observer { errorMessage ->
-            errorMessage?.let {
-                Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
-            }
-        })
+        viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
+            showError(errorMessage)
+        }
     }
 
     private fun showError(errorMessage: String) {

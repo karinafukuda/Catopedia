@@ -31,5 +31,4 @@ data class CatInformation(
         @SerializedName("imperial") val imperial: String,
         @SerializedName("metric") val metric: String
     )
-
 }
