@@ -7,10 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.gatopedia.R
 
-/**
- * A simple [Fragment] subclass.
- * create an instance of this fragment.
- */
 class FavoritesFragment : Fragment() {
 
     override fun onCreateView(

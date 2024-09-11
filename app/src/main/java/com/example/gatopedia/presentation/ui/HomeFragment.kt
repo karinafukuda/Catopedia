@@ -19,6 +19,8 @@ import com.example.gatopedia.domain.viewmodel.HomeViewModel
 private const val TWO_CARDS_IN_LINE = 2
 private const val VALIDATION_CHAR = "The breed search must have exactly 4 characters"
 private const val SIZE_ENTER_TEXT = 4
+private const val CAT_BREED = "catBreed"
+private const val IMAGE_URL = "imageUrl"
 
 class HomeFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentHomeBinding? = null
@@ -53,8 +55,8 @@ class HomeFragment : Fragment(), OnItemClickListener {
         val breed = cat.breeds.firstOrNull()
         if (breed != null) {
             val bundle = Bundle()
-            bundle.putParcelable("catBreed", breed)
-            bundle.putString("imageUrl", cat.url)
+            bundle.putParcelable(CAT_BREED, breed)
+            bundle.putString(IMAGE_URL, cat.url)
             findNavController().navigate(R.id.home_to_breed_detail, bundle)
         } else error("The breed list is empty")
     }

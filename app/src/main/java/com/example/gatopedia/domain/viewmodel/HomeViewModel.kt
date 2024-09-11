@@ -88,9 +88,9 @@ class HomeViewModel : ViewModel() {
     }
 
     companion object {
-        const val ERROR_MESSAGE_FAIL = "Erro ao buscar imagens: "
-        const val ERROR_NETWORK = "Erro na rede: "
-        const val ERROR = "Erro: "
-        const val BREED_NOT_FOUND = "Nenhuma imagem encontrada para esta raça"
+        const val ERROR_MESSAGE_FAIL = "Error fetching images: "
+        const val ERROR_NETWORK = "Network error: "
+        const val ERROR = "Error: "
+        const val BREED_NOT_FOUND = "No images found for this breed"
     }
 }

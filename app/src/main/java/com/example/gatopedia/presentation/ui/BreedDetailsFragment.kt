@@ -50,7 +50,8 @@ class BreedDetailsFragment : Fragment() {
                 temperament.text = it.temperament
                 weight.text = it.weight.metric
 
-                LinkUtils.makeLinkClickable(wiki, "Wikipedia for more information", it.wikipediaUrl)
+                LinkUtils.makeLinkClickable(wiki,
+                    getString(R.string.wikipedia_for_more_information), it.wikipediaUrl)
             }
         } ?: error("Objet Breed not found")
 

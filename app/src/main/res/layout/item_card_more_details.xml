@@ -20,7 +20,7 @@
         <ImageView
             android:id="@+id/cat_image"
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="260dp"
             android:background="@drawable/rounded_image"
             android:importantForAccessibility="no"
             android:minHeight="200dp"
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ft_plus_jakarta_sans"
-            android:paddingVertical="12dp"
+            android:paddingVertical="4dp"
             android:textSize="@dimen/fs_title_24"
             android:textStyle="bold"
             tools:text="Bengal" />
