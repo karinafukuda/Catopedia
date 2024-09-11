@@ -1,19 +1,20 @@
 package com.example.gatopedia.data
 
-import androidx.annotation.Keep
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 
-@Keep
+@Parcelize
 data class CatInformation(
     @SerializedName("id") val id: String,
     @SerializedName("url") val url: String,
     @SerializedName("width") val width: Int,
     @SerializedName("height") val height: Int,
     @SerializedName("breeds") val breeds: List<Breed>
-) : Serializable {
+) : Serializable, Parcelable {
 
-    @Keep
+    @Parcelize
     data class Breed(
         @SerializedName("weight") val weight: Weight,
         @SerializedName("id") val id: String,
@@ -24,11 +25,11 @@ data class CatInformation(
         @SerializedName("country_code") val countryCode: String,
         @SerializedName("life_span") val lifeSpan: String,
         @SerializedName("wikipedia_url") val wikipediaUrl: String
-    )
+    ) : Parcelable
 
-    @Keep
+    @Parcelize
     data class Weight(
         @SerializedName("imperial") val imperial: String,
         @SerializedName("metric") val metric: String
-    )
+    ) : Parcelable
 }

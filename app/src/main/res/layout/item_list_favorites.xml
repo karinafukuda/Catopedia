@@ -33,6 +33,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="160dp"
             android:layout_weight="1"
+            android:fontFamily="@font/ft_plus_jakarta_sans"
             android:importantForAccessibility="yes"
             android:textSize="18sp"
             android:textStyle="bold"

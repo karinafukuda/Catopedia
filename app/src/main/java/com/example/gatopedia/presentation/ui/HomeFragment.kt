@@ -48,8 +48,7 @@ class HomeFragment : Fragment(), OnItemClickListener {
     }
 
     override fun onItemClick(cat: CatInformation) {
-        val action = HomeFragmentDirections.actionHomeToBreedDetail()
-        findNavController().navigate(action)
+
     }
 
     private fun handleSearchBreedByName() {

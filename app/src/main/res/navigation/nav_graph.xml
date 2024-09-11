@@ -10,11 +10,6 @@
         android:name="com.example.gatopedia.presentation.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_home_to_breed_detail"
-            app:destination="@id/breedDetailsFragment"
-            app:enterAnim="@anim/nav_default_enter_anim" >
-        </action>
     </fragment>
     <fragment
         android:id="@+id/breedDetailsFragment"

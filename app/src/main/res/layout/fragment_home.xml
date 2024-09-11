@@ -18,29 +18,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/app_name" />
 
+    <TextView
+        android:id="@+id/label_hint_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mt_8"
+        android:textSize="@dimen/fs_text_14"
+        android:paddingVertical="@dimen/pv_8"
+        android:layout_marginHorizontal="@dimen/mh_16"
+        android:fontFamily="@font/ft_plus_jakarta_sans"
+
+        android:text="@string/hint_search_home"
+        android:importantForAccessibility="yes"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_home" />
+
     <SearchView
         android:id="@+id/search_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="@dimen/m_default_16"
         android:background="@drawable/search_view_background"
         android:importantForAutofill="auto"
+        android:typeface="@font/ft_plus_jakarta_sans"
         android:queryHint="@string/hint_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_home" />
+        app:layout_constraintTop_toBottomOf="@id/label_hint_search" />
 
     <TextView
         android:id="@+id/subtitle_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="@dimen/m_default_16"
         android:fontFamily="@font/ft_plus_jakarta_sans"
-        android:paddingVertical="8dp"
+
+        android:layout_marginTop="@dimen/mt_14"
+        android:paddingVertical="@dimen/pv_8"
         android:text="@string/popular_breeds"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textColor="@color/brown_link"
+        android:textSize="@dimen/fs_subtitle_18"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_begin="@dimen/m_default_16" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_middle"
@@ -65,12 +83,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
+        app:layout_constraintGuide_end="@dimen/m_default_16" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/mh_16"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/subtitle_home">
@@ -79,7 +98,7 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="200dp"
+            android:paddingBottom="@dimen/pd_bottom_list"
             tools:listitem="@layout/item_cat_breed" />
     </androidx.core.widget.NestedScrollView>
 
