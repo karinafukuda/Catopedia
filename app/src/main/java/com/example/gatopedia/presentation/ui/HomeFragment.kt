@@ -48,7 +48,6 @@ class HomeFragment : Fragment(), OnItemClickListener {
         adapter.setOnItemClickListener(this) // Define the listener
 
         viewModel.fetchRandomCatList()
-
     }
 
     override fun onItemClick(cat: CatInformation) {

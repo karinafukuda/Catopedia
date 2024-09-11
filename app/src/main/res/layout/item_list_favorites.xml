@@ -24,14 +24,14 @@
             android:background="@drawable/rounded_image"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_image_default" />
+            android:src="@drawable/cat" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/name_favorite"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="160dp"
             android:layout_weight="1"
             android:fontFamily="@font/ft_plus_jakarta_sans"
             android:importantForAccessibility="yes"
@@ -40,12 +40,14 @@
             tools:text="Bengal" />
 
         <ImageButton
+            android:id="@+id/favorite_button"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:visibility="gone"
             android:layout_gravity="center_vertical"
             android:background="@drawable/rounded_image"
             android:contentDescription="@string/a11y_favorite_icon"
-            android:src="@drawable/state_fav_selection" />
+            android:src="@drawable/ic_fav_default" />
 
     </LinearLayout>
 

@@ -29,7 +29,16 @@
         android:id="@+id/breedDetailsFragment"
         android:name="com.example.gatopedia.presentation.ui.BreedDetailsFragment"
         android:label="fragment_breed_details"
-        tools:layout="@layout/fragment_breed_details" />
+        tools:layout="@layout/fragment_breed_details">
+        <action
+            android:id="@+id/breed_detail_to_favorites"
+            app:destination="@id/favoritesFragment"
+            app:popUpTo="@id/nav_graph" >
+            <argument
+                android:name="breedName"
+                app:argType="string" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.gatopedia.presentation.ui.FavoritesFragment"

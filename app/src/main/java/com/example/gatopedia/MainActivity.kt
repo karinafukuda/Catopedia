@@ -27,13 +27,14 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = configureAppBar()
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
     }
 
     private fun configureAppBar(): AppBarConfiguration {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
-                R.id.breedDetailsFragment,
+//                R.id.breedDetailsFragment,
                 R.id.favoritesFragment
             )
         )
