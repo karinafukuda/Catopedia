@@ -10,4 +10,5 @@
     <dimen name="mh_16">16dp</dimen>
     <dimen name="corner_radius_card_8">8dp</dimen>
     <dimen name="elevation_card_4">4dp</dimen>
+    <dimen name="fs_title_24">24sp</dimen>
 </resources>

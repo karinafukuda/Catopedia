@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="4dp"
     android:layout_marginVertical="8dp"
@@ -35,40 +35,25 @@
             android:fontFamily="@font/ft_plus_jakarta_sans"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:ellipsize="end"
+            android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cat_image"
             tools:text="Bengal" />
 
         <TextView
-            android:id="@+id/breed_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/breed_name"
-            android:layout_alignStart="@+id/breed_name"
-            android:fontFamily="@font/ft_plus_jakarta_sans"
-            android:lines="3"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/breed_name"
-            app:layout_constraintTop_toBottomOf="@+id/breed_name"
-            tools:text="O Bengal é uma raça de gato doméstico desenvolvida para se parecer com gatos selvagens exóticos, como leopardos, jaguatiricas, margays e leopardos nublados." />
-
-        <TextView
             android:id="@+id/more_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/breed_description"
-            android:layout_marginTop="8dp"
             android:fontFamily="@font/ft_plus_jakarta_sans"
             android:gravity="end"
             android:lines="1"
             android:text="@string/more_information"
             android:textColor="@color/brown_link"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/breed_description" />
+            app:layout_constraintTop_toBottomOf="@+id/breed_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

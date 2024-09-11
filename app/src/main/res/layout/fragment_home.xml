@@ -53,7 +53,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/m_default_16"
         android:fontFamily="@font/ft_plus_jakarta_sans"
-
         android:layout_marginTop="@dimen/mt_14"
         android:paddingVertical="@dimen/pv_8"
         android:text="@string/popular_breeds"
@@ -85,7 +84,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/m_default_16" />
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,6 +99,6 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/pd_bottom_list"
             tools:listitem="@layout/item_cat_breed" />
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

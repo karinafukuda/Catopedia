@@ -1,14 +1,21 @@
 <resources>
-    <string name="app_name">Gatopédia</string>
-    <string name="title_home">Início</string>
-    <string name="title_search">Mais Detalhes</string>
-    <string name="hint_search">Busca por raça</string>
-    <string name="title_favorites">Favoritos</string>
-    <string name="breed_not_found">Raça desconhecida</string>
-    <string name="popular_breeds">Gatos Populares na Internet</string>
-    <string name="more_information">Saber mais</string>
-    <string name="a11y_favorite_icon">Botão de favoritar.</string>
-    <string name="fav_cats">Meus Gatos Favoritos</string>
-    <string name="more_info_subtitle">Mais Informações Felinas</string>
-    <string name="hint_search_home">Faça uma busca por raça utilizando 4 caracteres.</string>
+    <string name="app_name">Catopedia</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">More Details</string>
+    <string name="hint_search">Search by breed</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="breed_not_found">Unknown breed</string>
+    <string name="popular_breeds">Popular Cats on the Internet</string>
+    <string name="more_information">Learn more</string>
+    <string name="a11y_favorite_icon">Favorite button.</string>
+    <string name="fav_cats">My Favorite Cats</string>
+    <string name="more_info_subtitle">More Feline Information</string>
+    <string name="hint_search_home">Search for a breed using 4 characters.</string>
+    <string name="btn_favorite">Favorite</string>
+    <string name="life_span">Life Span:\u00A0</string>
+    <string name="country">Country:\u00A0</string>
+    <string name="temperament">Temperament:\u00A0</string>
+    <string name="weight">Weight:\u00A0</string>
+    <string name="kg">\u00A0Kg</string>
+    <string name="years">\u00A0years</string>
 </resources>
