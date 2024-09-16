@@ -14,7 +14,7 @@ Com as funcionalidades de:
 - Favoritar o gato, caso goste das características dele;
 - Acessar uma lista de gatos favoritados na `tela de favoritos`;
 - Editar os gatos favoritos;
-- Armanezar favoritos em Local Storage;
+- Armazenar favoritos em Local Storage;
 - Ter uma Splash Screen;
 - Ter acessibilidade para uso com Talkback;
 - Ser responsivo;
