@@ -2,11 +2,14 @@ package com.example.gatopedia.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gatopedia.R
 import com.example.gatopedia.data.CatData
 import com.example.gatopedia.presentation.ui.OnItemClickListener
 import com.example.gatopedia.presentation.viewholder.HomeViewHolder
+
+private const val BREED_NOT_FOUND = "Breed not found"
 
 class HomeAdapter(
     private var catImages: List<CatData>
@@ -26,11 +29,10 @@ class HomeAdapter(
         holder.configureTexts(catImage, holder)
 
         holder.itemView.setOnClickListener {
-            onItemClickListener?.onItemClick(catImage)
-        }
-
-        holder.moreInfoTextView.setOnClickListener {
-            onItemClickListener?.onItemClick(catImage)
+            if (catImage.breeds.isNotEmpty()) {
+                onItemClickListener?.onItemClick(catImage)
+            } else Toast.makeText(holder.itemView.context, BREED_NOT_FOUND, Toast.LENGTH_SHORT)
+                .show()
         }
     }
 

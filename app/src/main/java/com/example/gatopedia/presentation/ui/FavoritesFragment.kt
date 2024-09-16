@@ -52,4 +52,9 @@ class FavoritesFragment : Fragment() {
         binding.recyclerViewFav.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewFav.adapter = adapter
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

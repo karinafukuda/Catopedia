@@ -80,4 +80,8 @@ class BreedDetailsFragment : Fragment() {
 
     private fun saveFavoriteBreed(breedName: String) = sharedViewModel.addToFavorites(breedName)
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

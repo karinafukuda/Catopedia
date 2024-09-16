@@ -99,11 +99,8 @@ class HomeFragment : Fragment(), OnItemClickListener {
         }
     }
 
-    private fun showError(errorMessage: String) {
-        Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
-    }
+    private fun showError(errorMessage: String) = Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
 
-    // Prevents memory leaks
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
