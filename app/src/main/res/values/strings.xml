@@ -20,4 +20,5 @@
     <string name="years">\u00A0years</string>
     <string name="wikipedia_for_more_information">Wikipedia for more information</string>
     <string name="don_t_have_favorite_cats_here">Don’t have favorite cats here!</string>
+    <string name="text_favorite_helper">Here you can view the list of favorite cat names and remove them using the button.</string>
 </resources>

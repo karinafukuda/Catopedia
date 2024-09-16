@@ -40,20 +40,16 @@ class FavoritesFragment : Fragment() {
         sharedViewModel.favoriteBreeds.observe(viewLifecycleOwner) { favoriteBreeds ->
             adapter.updateData(favoriteBreeds)
 
-            extracted(favoriteBreeds)
+            if (favoriteBreeds.isEmpty()) {
+                binding.emptyListMessage.visibility = View.VISIBLE
+                binding.recyclerViewFav.visibility = View.GONE
+            } else {
+                binding.emptyListMessage.visibility = View.GONE
+                binding.recyclerViewFav.visibility = View.VISIBLE
+            }
         }
 
         binding.recyclerViewFav.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewFav.adapter = adapter
-    }
-
-    private fun extracted(favoriteBreeds: List<String>) {
-        if (favoriteBreeds.isEmpty()) {
-            binding.emptyListMessage.visibility = View.VISIBLE
-            binding.recyclerViewFav.visibility = View.GONE
-        } else {
-            binding.emptyListMessage.visibility = View.GONE
-            binding.recyclerViewFav.visibility = View.VISIBLE
-        }
     }
 }

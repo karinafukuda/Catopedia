@@ -13,4 +13,6 @@
     <dimen name="fs_title_24">24sp</dimen>
     <dimen name="max_size_fav_image_40">40dp</dimen>
     <dimen name="max_size_image_button_fav_48">48dp</dimen>
+    <dimen name="p_b_100">100dp</dimen>
+    <dimen name="info_text_16">16sp</dimen>
 </resources>

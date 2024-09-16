@@ -24,7 +24,7 @@
             android:background="@drawable/rounded_image"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop"
-            android:src="@drawable/cat" />
+            android:src="@mipmap/ic_launcher_round" />
 
         <TextView
             android:id="@+id/name_favorite"
@@ -33,6 +33,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
+            android:lines="2"
             android:fontFamily="@font/ft_plus_jakarta_sans"
             android:importantForAccessibility="yes"
             android:textSize="18sp"
