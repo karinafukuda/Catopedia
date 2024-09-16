@@ -11,21 +11,21 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.gatopedia.R
-import com.example.gatopedia.data.CatInformation
+import com.example.gatopedia.data.CatData
 import com.example.gatopedia.databinding.FragmentHomeBinding
 import com.example.gatopedia.presentation.adapter.HomeAdapter
-import com.example.gatopedia.domain.viewmodel.HomeViewModel
+import com.example.gatopedia.presentation.viewmodel.HomeViewModel
+import com.example.gatopedia.presentation.viewmodel.SharedViewModel
 
 private const val TWO_CARDS_IN_LINE = 2
 private const val VALIDATION_CHAR = "The breed search must have exactly 4 characters"
 private const val SIZE_ENTER_TEXT = 4
-private const val CAT_BREED = "catBreed"
-private const val IMAGE_URL = "imageUrl"
 
 class HomeFragment : Fragment(), OnItemClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: HomeViewModel
+    private lateinit var sharedViewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,25 +39,26 @@ class HomeFragment : Fragment(), OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
 
         val adapter = configureAdapter()
 
         observeUpdateImage(adapter)
         observerError()
         handleSearchBreedByName()
-        adapter.setOnItemClickListener(this) // Define the listener
+        adapter.setOnItemClickListener(this)
 
         viewModel.fetchRandomCatList()
     }
 
-    override fun onItemClick(cat: CatInformation) {
-        val breed = cat.breeds.firstOrNull()
-        if (breed != null) {
-            val bundle = Bundle()
-            bundle.putParcelable(CAT_BREED, breed)
-            bundle.putString(IMAGE_URL, cat.url)
-            findNavController().navigate(R.id.home_to_breed_detail, bundle)
-        } else error("The breed list is empty")
+    override fun onItemClick(cat: CatData) {
+        getCatDataOnSelected(cat)
+        findNavController().navigate(R.id.home_to_breed_detail)
+    }
+
+    private fun getCatDataOnSelected(cat: CatData) {
+        sharedViewModel.setSelectedBreed(cat.breeds.firstOrNull())
+        sharedViewModel.setSelectedBreedImageUrl(cat.url)
     }
 
     private fun handleSearchBreedByName() {
@@ -81,9 +82,7 @@ class HomeFragment : Fragment(), OnItemClickListener {
 
     private fun observeUpdateImage(adapter: HomeAdapter) {
         viewModel.catImages.observe(viewLifecycleOwner) { newCatImages ->
-            if (newCatImages != null) {
-                adapter.updateData(newCatImages)
-            }
+            newCatImages?.let { adapter.updateData(it) }
         }
     }
 

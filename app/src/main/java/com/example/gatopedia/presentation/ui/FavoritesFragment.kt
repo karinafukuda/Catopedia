@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gatopedia.databinding.FragmentFavoritesBinding
-import com.example.gatopedia.domain.viewmodel.HomeViewModel
+import com.example.gatopedia.presentation.viewmodel.HomeViewModel
 import com.example.gatopedia.presentation.adapter.FavoriteAdapter
 import com.example.gatopedia.presentation.viewmodel.SharedViewModel
 

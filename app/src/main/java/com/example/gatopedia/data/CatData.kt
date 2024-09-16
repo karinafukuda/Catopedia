@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 
 @Parcelize
-data class CatInformation(
+data class CatData(
     @SerializedName("id") val id: String,
     @SerializedName("url") val url: String,
     @SerializedName("width") val width: Int,

@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gatopedia.R
-import com.example.gatopedia.data.CatInformation
+import com.example.gatopedia.data.CatData
 import com.squareup.picasso.Picasso
 
 class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -14,7 +14,7 @@ class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val moreInfoTextView: TextView = itemView.findViewById(R.id.more_info)
 
     fun configureTexts(
-        catImage: CatInformation,
+        catImage: CatData,
         holder: HomeViewHolder
     ) {
         for (breed in catImage.breeds) {
@@ -27,7 +27,7 @@ class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     fun configureImage(
-        catImage: CatInformation,
+        catImage: CatData,
         holder: HomeViewHolder
     ) {
         Picasso.get()

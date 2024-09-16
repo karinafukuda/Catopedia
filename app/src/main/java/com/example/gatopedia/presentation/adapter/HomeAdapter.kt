@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gatopedia.R
-import com.example.gatopedia.data.CatInformation
+import com.example.gatopedia.data.CatData
 import com.example.gatopedia.presentation.ui.OnItemClickListener
 import com.example.gatopedia.presentation.viewholder.HomeViewHolder
 
 class HomeAdapter(
-    private var catImages: List<CatInformation>
+    private var catImages: List<CatData>
 ) : RecyclerView.Adapter<HomeViewHolder>() {
 
     private var onItemClickListener: OnItemClickListener? = null
@@ -36,7 +36,7 @@ class HomeAdapter(
 
     override fun getItemCount() = catImages.size
 
-    fun updateData(newCatImages: List<CatInformation>) {
+    fun updateData(newCatImages: List<CatData>) {
         catImages = newCatImages
         notifyDataSetChanged()
     }

@@ -1,7 +1,7 @@
 package com.example.gatopedia.presentation.ui
 
-import com.example.gatopedia.data.CatInformation
+import com.example.gatopedia.data.CatData
 
 interface OnItemClickListener {
-    fun onItemClick(cat: CatInformation)
+    fun onItemClick(cat: CatData)
 }
