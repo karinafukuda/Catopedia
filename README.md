@@ -8,20 +8,20 @@ Lançar o primeiro App na PlayStore 🥳
 
 #### ✳️ Funcionalidades:
 
-Exibir uma vitrine de 10 gatos de forma aleatória na tela inicial;
-Permitir a busca por raças de gatos pelo prefixo do nome na tela inicial;
-Acessar a tela de mais detalhes com informações completas sobre a raça selecionada;
-Adicionar gatos aos favoritos com base nas suas características;
-Acessar o link da Wikipédia para obter mais informações sobre a raça;
-Visualizar a lista de gatos favoritados na tela de favoritos;
-Remover gatos da lista de favoritos;
-Armazenar os favoritos para acesso posterior.
+- Exibir uma vitrine de 10 gatos de forma aleatória na tela inicial;
+- Permitir a busca por raças de gatos pelo prefixo do nome na tela inicial;
+- Acessar a tela de mais detalhes com informações completas sobre a raça selecionada;
+- Adicionar gatos aos favoritos com base nas suas características;
+- Acessar o link da Wikipédia para obter mais informações sobre a raça;
+- Visualizar a lista de gatos favoritados na tela de favoritos;
+- Remover gatos da lista de favoritos;
+- Armazenar os favoritos para acesso posterior.
 
 #### 🧰 Funcionalidades em Desenvolvimento
 
-Implementação de uma Splash Screen inicial;
-Suporte à acessibilidade com o Talkback para melhorar a usabilidade;
-Tornar o app responsivo para diferentes tamanhos de tela.
+- Implementação de uma Splash Screen inicial;
+- Suporte à acessibilidade com o Talkback para melhorar a usabilidade;
+- Tornar o app responsivo para diferentes tamanhos de tela.
 
 ### 📸 Imagens e Vídeo
 
