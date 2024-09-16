@@ -11,4 +11,6 @@
     <dimen name="corner_radius_card_8">8dp</dimen>
     <dimen name="elevation_card_4">4dp</dimen>
     <dimen name="fs_title_24">24sp</dimen>
+    <dimen name="max_size_fav_image_40">40dp</dimen>
+    <dimen name="max_size_image_button_fav_48">48dp</dimen>
 </resources>

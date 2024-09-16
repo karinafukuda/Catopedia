@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/cat_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="@dimen/max_size_fav_image_40"
+            android:layout_height="@dimen/max_size_fav_image_40"
             android:background="@drawable/rounded_image"
             android:importantForAccessibility="no"
             android:scaleType="centerCrop"
@@ -41,13 +41,12 @@
 
         <ImageButton
             android:id="@+id/favorite_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:visibility="gone"
+            android:layout_width="@dimen/max_size_image_button_fav_48"
+            android:layout_height="@dimen/max_size_image_button_fav_48"
             android:layout_gravity="center_vertical"
             android:background="@drawable/rounded_image"
             android:contentDescription="@string/a11y_favorite_icon"
-            android:src="@drawable/ic_fav_default" />
+            android:src="@drawable/remove_circle_outline_24" />
 
     </LinearLayout>
 
