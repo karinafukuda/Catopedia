@@ -6,6 +6,18 @@ Catopedia é um projeto pessoal desenvolvido com o objetivo de aplicar e reforç
 
 Lançar o primeiro App na PlayStore 🥳
 
+### 🧑‍💻 Tecnologias Utilizadas
+
+- Kotlin: Linguagem principal do app.
+- Retrofit: Para chamadas HTTP à API.
+- ViewModel: Gerenciar dados da UI.
+- LiveData: Dados observáveis e reativos.
+- LifeCycle: Gerenciar ciclos de vida de componentes.
+- Navigation: Controlar da navegação entre telas.
+- Picasso: Carregamento eficiente de imagens.
+- Shared Preferences: Armazenamento simples e persistente de dados.
+- ViewBinding: Acesso seguro a views sem ``findViewById``.
+
 #### ✳️ Funcionalidades:
 
 - Exibir uma vitrine de 10 gatos de forma aleatória na tela inicial;
@@ -22,6 +34,7 @@ Lançar o primeiro App na PlayStore 🥳
 - Implementação de uma Splash Screen inicial;
 - Suporte à acessibilidade com o Talkback para melhorar a usabilidade;
 - Tornar o app responsivo para diferentes tamanhos de tela.
+- Testes unitários.
 
 ### 📸 Imagens e Vídeo
 
