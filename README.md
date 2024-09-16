@@ -40,11 +40,12 @@ Lançar o primeiro App na PlayStore 🥳
 
 | Home | Breed Details | Favorites |
 |----|----|----|
-|![Catopedia-1](https://github.com/user-attachments/assets/5056b63c-dcd8-4512-976b-19881c34f2a0)|![catopedia-2](https://github.com/user-attachments/assets/a71892c7-3153-4e86-8844-6ae4dfce600f)|![Catopedia-3](https://github.com/user-attachments/assets/6b05340b-eace-46e8-9517-1ad4081795f6)|
+|![Catopedia-1](https://github.com/user-attachments/assets/5056b63c-dcd8-4512-976b-19881c34f2a0)|!![catopedia-2](https://github.com/user-attachments/assets/cd3c40fe-4a3a-4720-bdbf-fd92e58c6042)|![Catopedia-3](https://github.com/user-attachments/assets/095a75d4-0d79-489f-b110-6aa00af28aae)|
 
-##### 🎬 Vídeo de Demonstração
+ ##### 🎬 Vídeo de Demonstração
 
-https://github.com/user-attachments/assets/f9641a23-dd90-416a-b457-67e52393f9ed
+https://github.com/user-attachments/assets/aea8ddeb-9357-4077-a6ae-a6abf429102a
+
 
 ### 🌐 API Utilizada
 
