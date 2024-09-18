@@ -11,7 +11,6 @@ import com.squareup.picasso.Picasso
 class HomeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val catImageView: ImageView = itemView.findViewById(R.id.cat_image)
     private val breedNameTextView: TextView = itemView.findViewById(R.id.breed_name)
-    val moreInfoTextView: TextView = itemView.findViewById(R.id.more_info)
 
     fun configureTexts(
         catImage: CatData,

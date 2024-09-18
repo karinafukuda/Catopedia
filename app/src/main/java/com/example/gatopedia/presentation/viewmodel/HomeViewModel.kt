@@ -16,12 +16,6 @@ class HomeViewModel : ViewModel() {
     private val _catImages = MutableLiveData<List<CatData>?>()
     val catImages: LiveData<List<CatData>?> get() = _catImages
 
-    private val _searchImages = MutableLiveData<List<CatData>?>()
-    val searchImages: LiveData<List<CatData>?> get() = _searchImages
-
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> get() = _isLoading
-
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
@@ -37,20 +31,16 @@ class HomeViewModel : ViewModel() {
                         call: Call<List<CatData>>,
                         response: Response<List<CatData>>
                     ) {
-                        _isLoading.postValue(true)
                         if (response.isSuccessful) {
                             response.body()?.let { catImages ->
                                 _catImages.postValue(catImages)
-                                _isLoading.postValue(false)
                             }
                         } else _error.postValue("$ERROR${response.message()}").also {
-                            _isLoading.postValue(false)
                         }
                     }
 
                     override fun onFailure(call: Call<List<CatData>>, t: Throwable) {
                         _error.postValue("$ERROR_MESSAGE_FAIL${t.message}")
-                        _isLoading.postValue(false)
                     }
                 })
         }
@@ -64,23 +54,18 @@ class HomeViewModel : ViewModel() {
                         call: Call<List<CatData>>,
                         response: Response<List<CatData>>
                     ) {
-                        _isLoading.postValue(true)
                         if (response.isSuccessful) {
                             val images = response.body()
                             if (images.isNullOrEmpty()) {
                                 _error.postValue(BREED_NOT_FOUND)
-                                _isLoading.postValue(false)
                             } else {
                                 _catImages.postValue(images)
-                                _searchImages.postValue(images)
-                                _isLoading.postValue(false)
                             }
                         }
                     }
 
                     override fun onFailure(call: Call<List<CatData>>, t: Throwable) {
                         _error.postValue("$ERROR_NETWORK${t.message}").also {
-                            _isLoading.postValue(false)
                         }
                     }
                 })
