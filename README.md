@@ -18,7 +18,7 @@ Lançar o primeiro App na PlayStore 🥳
 - Shared Preferences: Armazenamento simples e persistente de dados.
 - ViewBinding: Acesso seguro a views sem ``findViewById``.
 
-#### ✳️ Funcionalidades:
+### ✳️ Funcionalidades:
 
 - Exibir uma vitrine de 10 gatos de forma aleatória na tela inicial;
 - Permitir a busca por raças de gatos pelo prefixo do nome na tela inicial;
@@ -29,7 +29,7 @@ Lançar o primeiro App na PlayStore 🥳
 - Remover gatos da lista de favoritos;
 - Armazenar os favoritos para acesso posterior.
 
-#### 🧰 Funcionalidades em Desenvolvimento
+### 🧰 Funcionalidades em Desenvolvimento
 
 - Implementação de uma Splash Screen inicial;
 - Suporte à acessibilidade com o Talkback para melhorar a usabilidade;
@@ -52,5 +52,7 @@ https://github.com/user-attachments/assets/aea8ddeb-9357-4077-a6ae-a6abf429102a
 The Cat API: Uma API pública que fornece informações sobre gatos, incluindo uma lista de 10 gatos aleatórios e a capacidade de buscar gatos por ID ou nome. O conteúdo está disponível em inglês.
 
 - [Link para a documentação](https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=FJkYOq9tW)
+
+----- 
 
 Criado com 🤎 por Karina Fukuda | 2024.
